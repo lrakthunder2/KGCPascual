@@ -7,49 +7,46 @@ import mathematics.*;
 
 public class Main {
 	
-	static int f[] = new int[10];
-	
-	static void preCompute()
-	{
-		f[0] = f[1] = 1;
-		for(int i=2; i<10; ++i)
-			f[i] = f[i-1]*i;
-	}
-	static boolean isStrong(int x)
-	{
-		int factSum = 0;
-		
-		int temp = x;
-		while (temp>0)
-		{
-			factSum += f[temp%10];
-			temp /= 0;
-		}
-		return (factSum == x);
-	}
-
 	public static void main(String[] args) {
 		
-//17th exercise
-
-//		public static void main (String[args])
-			preCompute();
-			
-			int x = 145;
-			if(isStrong(x))
-			{
-				System.out.println("Yes");
-			}
-			else
-				System.out.println("No");
-			x = 534;
-			if(isStrong(x))
-			{
-				System.out.println("Yes");
-			}
-			else
-				System.out.println("No");
-
+//17th exercise	
+		int Number; 
+		int Temp; 
+		int Reminder; 
+		int Sum = 0; 
+		int i;
+		int Factorial;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print(" Please Enter any Number : ");
+		Number = sc.nextInt();		
+		
+		Temp = Number;
+		while( Temp > 0)
+		{
+			Factorial = 1; 
+			i = 1; 
+		    Reminder = Temp % 10;
+		    while (i <= Reminder)
+		    {
+		     	Factorial = Factorial * i;
+		     	i++;
+		    }
+		    System.out.println(" The Factorial of " + Reminder + "  =  " + Factorial);
+		     Sum = Sum + Factorial;
+		     Temp = Temp /10;
+		}
+		
+		System.out.println(" The Sum of the Factorials of a Given Number " + Number + " =  " + Sum);
+		
+		if ( Number == Sum )
+		{
+			System.out.println("\n " + Number + " is a Strong Number");
+		}
+		else
+		{
+		   System.out.println("\n " + Number + " is Not a Strong Number");
+		}
 		
 //16th exercise		
 //		
